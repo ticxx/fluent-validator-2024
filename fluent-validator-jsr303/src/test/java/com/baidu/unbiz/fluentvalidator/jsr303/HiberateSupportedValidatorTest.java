@@ -1,33 +1,27 @@
 package com.baidu.unbiz.fluentvalidator.jsr303;
 
-import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toComplex;
-import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
-import static org.hamcrest.Matchers.nullValue;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
-import java.util.List;
-import java.util.Locale;
-
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import com.baidu.unbiz.fluentvalidator.ComplexResult;
-import com.baidu.unbiz.fluentvalidator.DefaultValidateCallback;
-import com.baidu.unbiz.fluentvalidator.FluentValidator;
-import com.baidu.unbiz.fluentvalidator.Result;
-import com.baidu.unbiz.fluentvalidator.ValidationError;
-import com.baidu.unbiz.fluentvalidator.validator.element.ValidatorElementList;
+import com.baidu.unbiz.fluentvalidator.*;
 import com.baidu.unbiz.fluentvalidator.dto.Company;
 import com.baidu.unbiz.fluentvalidator.dto.CompanyBuilder;
 import com.baidu.unbiz.fluentvalidator.dto.Department;
 import com.baidu.unbiz.fluentvalidator.exception.MyException;
 import com.baidu.unbiz.fluentvalidator.util.DateUtil;
 import com.baidu.unbiz.fluentvalidator.validator.CompanyCustomValidator;
+import com.baidu.unbiz.fluentvalidator.validator.element.ValidatorElementList;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import java.util.List;
+import java.util.Locale;
+
+import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toComplex;
+import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
+import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author zhangxu
@@ -140,7 +134,7 @@ public class HiberateSupportedValidatorTest {
         System.out.println(ret);
         assertThat(ret.isSuccess(), is(false));
         assertThat(ret.getErrorNumber(), is(2));
-        assertThat(ret.getErrors().get(0), is("may not be null"));
+        assertThat(ret.getErrors().get(0), is("must not be null"));
         assertThat(ret.getErrors().get(1), is("Company id is not valid, invalid value=-1"));
     }
 
@@ -157,7 +151,7 @@ public class HiberateSupportedValidatorTest {
         System.out.println(ret);
         assertThat(ret.isSuccess(), is(false));
         assertThat(ret.getErrorNumber(), is(2));
-        assertThat(ret.getErrors().get(0).getErrorMsg(), is("may not be null"));
+        assertThat(ret.getErrors().get(0).getErrorMsg(), is("must not be null"));
         assertThat(ret.getErrors().get(0).getField(), is("departmentList"));
         assertThat(ret.getErrors().get(0).getInvalidValue(), nullValue());
         assertThat(ret.getErrors().get(1).getErrorMsg(), is("Company id is not valid, invalid value=-1"));

@@ -1,15 +1,12 @@
 package com.baidu.unbiz.fluentvalidator.support;
 
-import java.util.Locale;
-
-import javax.annotation.PostConstruct;
-
+import com.baidu.unbiz.fluentvalidator.util.LocaleUtil;
+import com.baidu.unbiz.fluentvalidator.util.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
-import com.baidu.unbiz.fluentvalidator.util.LocaleUtil;
-import com.baidu.unbiz.fluentvalidator.util.Preconditions;
+import java.util.Locale;
 
 /**
  * 国际化使用的错误消息辅助类
@@ -73,7 +70,7 @@ public class MessageSupport {
     /**
      * 如果在Spring容器中初始化，则打印一条消息
      */
-    @PostConstruct
+    @jakarta.annotation.PostConstruct
     public void prepare() {
         Preconditions.checkNotNull(messageSource, "MessageSource should not be null");
         LOGGER.info(this.getClass().getSimpleName() + " has been initialized properly");

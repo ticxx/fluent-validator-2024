@@ -1,27 +1,30 @@
 package com.baidu.unbiz.fluentvalidator.interceptor;
 
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-
-import org.hamcrest.Matchers;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-
 import com.baidu.unbiz.fluentvalidator.dto.Car;
 import com.baidu.unbiz.fluentvalidator.error.CarError;
 import com.baidu.unbiz.fluentvalidator.exception.CarException;
 import com.baidu.unbiz.fluentvalidator.service.CarService;
 import com.baidu.unbiz.fluentvalidator.support.MessageSupport;
 import com.google.common.collect.Lists;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * @author zhangxu
  */
-@ContextConfiguration(locations = {"classpath*:applicationContext.xml"})
+@RunWith(SpringRunner.class)
+@ImportResource({"classpath*:application-context.xml"})
+//@SpringBootTest(classes = XmlBeanApplication.class)
 public class FluentValidateInterceptorTest extends AbstractJUnit4SpringContextTests {
 
     @Autowired

@@ -1,21 +1,19 @@
 package com.baidu.unbiz.fluentvalidator.registry.impl;
 
-import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
-import javax.annotation.Resource;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import com.baidu.unbiz.fluentvalidator.FluentValidator;
 import com.baidu.unbiz.fluentvalidator.Result;
 import com.baidu.unbiz.fluentvalidator.dto.Car;
 import com.baidu.unbiz.fluentvalidator.error.CarError;
 import com.baidu.unbiz.fluentvalidator.registry.Registry;
+import jakarta.annotation.Resource;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static com.baidu.unbiz.fluentvalidator.ResultCollectors.toSimple;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * @author zhangxu
